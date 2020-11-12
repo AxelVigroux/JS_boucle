@@ -25,15 +25,15 @@ console.log('1. Tous les livres ont été empruntés au moins 1 fois.')
 
 console.log('2. Le livre le plus empruntés est :');
 const  mostRented = books.sort(function(a, b){
-  if (a.rented < b.rented){
+  if (a.rented > b.rented){
     return -1;
-  } else if (a.rented > b.rented){
+  } else if (a.rented < b.rented){
     return 1;
   } else {
     return 0;
   }
 })
-console.log(mostRented);
+console.log(mostRented[0]);
 
 /* Si j'utilise la methode .shift/.pop je supprime le livre */
 
@@ -47,7 +47,7 @@ const lessRented = books.sort(function(a, b){
     return 0;
   }
 })
-console.log(lessRented);
+console.log(lessRented[0]);
 /* Si j'utilise la methode .shift/.pop je supprime le livre */
 
 const index = books.find(function(b) {
