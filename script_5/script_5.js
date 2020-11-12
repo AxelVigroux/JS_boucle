@@ -13,37 +13,57 @@ const books = [
   { title: 'Guerre et Paix', id: 748147, rented: 19 }
 ];
 
+/* EMPRUNTED ? */
 const results = books.every(function(b) {
   return b.rented > 0;
 })
 console.log(results)
 console.log('1. Tous les livres ont été empruntés au moins 1 fois.')
 
+  
 
-console.log('2. Le livre le plus empruntés est le :');
-books.sort(function(a,b ){
-  if (a.last > b.last){
+
+console.log('2. Le livre le plus empruntés est :');
+const  mostRented = books.sort(function(a, b){
+  if (a.rented < b.rented){
     return -1;
-    } else if (a.last < b.last){
+  } else if (a.rented > b.rented){
     return 1;
-    }  else {
-      return 0;
-    }  
+  } else {
+    return 0;
+  }
 })
-console.log(books.first)
+console.log(mostRented);
+
+/* Si j'utilise la methode .shift/.pop je supprime le livre */
+
+console.log('3. le livre le moins emprunté est : ');
+const lessRented = books.sort(function(a, b){
+  if (a.rented < b.rented){
+    return -1;
+  } else if (a.rented > b.rented){
+    return 1;
+  } else {
+    return 0;
+  }
+})
+console.log(lessRented);
+/* Si j'utilise la methode .shift/.pop je supprime le livre */
 
 const index = books.find(function(b) {
   return b.id === 873495;
+  
 })
+
 console.log('4. Le livre est :');
-console.log({ index })
+console.log({ index });
 
 
 const suppr = books.findIndex(function(b) {
   return b.id === 133712;
 })
 books.splice(suppr, 1)
-console.log('5. La liste dans le livre 133712 : ');
+console.log('5. La liste sans le livre 133712 : ');
 console.log(books)
 
 
